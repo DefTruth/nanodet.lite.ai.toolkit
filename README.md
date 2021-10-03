@@ -1,4 +1,13 @@
-# nanodet.lite.ai.toolkit 🚀🚀🌟
+# nanodet.lite.ai.toolkit 🚀🚀🌟  
+
+<div align='left'>
+  <img src=https://img.shields.io/github/stars/DefTruth/nanodet.lite.ai.toolkit.svg?style=social >
+  <img src=https://img.shields.io/github/forks/DefTruth/nanodet.lite.ai.toolkit.svg?style=social >
+  <img src=https://img.shields.io/github/watchers/DefTruth/nanodet.lite.ai.toolkit.svg?style=social>
+  <img src=https://visitor-badge.laobi.icu/badge?page_id=DefTruth.nanodet.lite.ai.toolkit >
+</div>
+
+
 使用Lite.AI.ToolKit C++工具箱来跑nanodet的一些案例(https://github.com/DefTruth/lite.ai.toolkit)
 
 <div align='center'>

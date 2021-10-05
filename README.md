@@ -42,9 +42,9 @@ nanodet C++ 版本的源码是用ONNXRuntime的C++ API实现的，可以在 [lit
 | *lite::cv::detection::NanoDet* |    [nanodet_g.onnx](https://github.com/DefTruth/nanodet.lite.ai.toolkit/blob/main/examples/hub/onnx/cv)     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 14Mb  |
 | *lite::cv::detection::NanoDet* |    [nanodet_t.onnx](https://github.com/DefTruth/nanodet.lite.ai.toolkit/blob/main/examples/hub/onnx/cv)     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 5.1Mb  |
 | *lite::cv::detection::NanoDet* |    [nanodet-RepVGG-A0_416.onnx](https://github.com/DefTruth/nanodet.lite.ai.toolkit/blob/main/examples/hub/onnx/cv)     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 26Mb  |
-| *lite::cv::detection::NanoDet* |    [nanodet-EfficientNet-Lite0_320.onnx](https://github.com/DefTruth/nanodet.lite.ai.toolkit/blob/main/examples/hub/onnx/cv)     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
-| *lite::cv::detection::NanoDet* |    [nanodet-EfficientNet-Lite1_416.onnx](https://github.com/DefTruth/nanodet.lite.ai.toolkit/blob/main/examples/hub/onnx/cv)     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
-| *lite::cv::detection::NanoDet* |    [nanodet-EfficientNet-Lite2_512.onnx](https://github.com/DefTruth/nanodet.lite.ai.toolkit/blob/main/examples/hub/onnx/cv)     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 18Mb  |  
+| *lite::cv::detection::NanoDetEfficientNetLite* |    [nanodet-EfficientNet-Lite0_320.onnx](https://github.com/DefTruth/nanodet.lite.ai.toolkit/blob/main/examples/hub/onnx/cv)     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
+| *lite::cv::detection::NanoDetEfficientNetLite* |    [nanodet-EfficientNet-Lite1_416.onnx](https://github.com/DefTruth/nanodet.lite.ai.toolkit/blob/main/examples/hub/onnx/cv)     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
+| *lite::cv::detection::NanoDetEfficientNetLite* |    [nanodet-EfficientNet-Lite2_512.onnx](https://github.com/DefTruth/nanodet.lite.ai.toolkit/blob/main/examples/hub/onnx/cv)     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 18Mb  |  
 
 
 ## 4. 修改源码
@@ -95,11 +95,11 @@ self.register_buffer(
 什么是distribution_project？这个需要小伙伴们去看一下[nanodet作者的详细解析](https://zhuanlan.zhihu.com/p/306530300) 和 [大白话 Generalized Focal Loss](https://zhuanlan.zhihu.com/p/147691786) 这两篇文章了。简单来说就是，一般的目标检测都是直接回归边框相对于某个指定长度的偏移量或相对量，但是GFL和nanodet不这么干，因为这样非常不flexible，在复杂场景中，边界框的表示具有很强的不确定性，而现有的框回归本质都是建模了非常单一的狄拉克分布。GFL的作者希望用一种general的分布去建模边界框的表示，工程上的实现就是，预测边框大小在(1,2,...,n=7|8|9|...)上的概率分布，然后再采用一个求和公式得到最后的结果。如下图所示（比如被水模糊掉的滑板，以及严重遮挡的大象）
 
 <div align='center'>
-  <img src='resources/gfl-1.png' >
+  <img src='resources/gfl.jpg' height="200" width="600">
 </div>   
 
 <div align='center'>
-  <img src='resources/gfl.jpg' >
+  <img src='resources/gfl-1.png' height="100" width="600">
 </div>   
 
 在nanodet的原始实现中，ONNX导出时，是不导出distribution_project部分的，原来的代码如下：  
@@ -141,7 +141,7 @@ return cls_score, bbox_pred
 可以看到，distribution_project操作已经被转换成Softmax和MatMul两个算子。而在Internal中注册的`project`也被当做了常量作为MatMul算子的输入。  
 
 <div align='center'>
-  <img src='resources/matmul.png' >
+  <img src='resources/matmul.png' height="400px">
 </div>   
 
 
@@ -152,8 +152,9 @@ return cls_score, bbox_pred
 
 ```c++
 class LITE_EXPORTS lite::cv::detection::NanoDet;
+class LITE_EXPORTS lite::cv::detection::NanoDetEfficientNetLite;
 ```  
-该类型目前包含1公共接口`detect`用于进行目标检测  
+该类型目前包含1公共接口`detect`用于进行目标检测。由于EfficientNetLite版本的nanodet前处理和其他版本的不一致，我为了保持Lite.AI.ToolKit中初始化风格的一致性，这里使用两个类分别实现了nanodet的C++封装。
 ```c++
 public:
     /**

@@ -51,7 +51,7 @@ nanodet C++ 版本的源码是用ONNXRuntime的C++ API实现的，可以在 [lit
 
 ### 4.1 修改Internal
 
-在👉[DefTruth/nanodet](https://github.com/DefTruth/nanodet) 中我把distribution_project部分的操作也进行了ONNX导出，为此，我对Internal的原始实现进行了修改，是其能够与ONNX的算子兼容。Internal整体的思路不变，但我修改了`project`的buffer注册部分，原来`project`注册的代码是这样的：  
+在👉[DefTruth/nanodet](https://github.com/DefTruth/nanodet) 中我把distribution_project部分的操作也进行了ONNX导出，为此，我对Internal的原始实现进行了修改，使其能够与ONNX的算子兼容。Internal整体的思路不变，但我修改了`project`的buffer注册部分，原来`project`注册的代码是这样的：  
 ```python
  self.register_buffer(
       "project", torch.linspace(0, self.reg_max, self.reg_max + 1)
@@ -79,7 +79,7 @@ def linear(input: Tensor, weight: Tensor, bias: Optional[Tensor] = None) -> Tens
         - Output: :math:`(N, *, out\_features)`
     """
 ```
-Internal中的`project`就是linear用到的参数`Weight`，需要是一个矩阵的形式。在PyTorch中直接使用一维向量来相乘，也没有报错，我想这主要归功于PyTorch的自动broadcast功能，它自能地把维度对齐了。然后这种broadcast的行为，并没有被ONNX很好地支持，在转后ONNX文件后，就会出问题。因此，最好的方式就是对Internal进行修改，这是一个不带可学习参数的操作，完全可以动刀。
+Internal中的`project`就是linear用到的参数`Weight`，需要是一个矩阵的形式。在PyTorch中直接使用一维向量来相乘，也没有报错，我想这主要归功于PyTorch的自动broadcast功能，它自能地把维度对齐了。然而，这种broadcast的行为，并没有被ONNX很好地支持，在转换ONNX文件后，就会出问题。因此，最好的方式就是对Internal进行修改，这是一个不带可学习参数的操作，完全可以动刀。
 * 使用torch.arange替换torch.linspace，torch.arange被[torch.onnx.export](https://pytorch.org/docs/stable/onnx.html#supported-operators) 直接支持  
 * 在对`project`进行buffer注册时，使用显式的维度设置，而非隐式的维度设置。  
 修改后的buffer注册代码如下：  
@@ -92,7 +92,7 @@ self.register_buffer(
 ```  
 
 ### 4.2 导出distribution_project  
-什么是distribution_project？这个需要小伙伴们去看一下[nanodet作者的详细解析](https://zhuanlan.zhihu.com/p/306530300) 和 [大白话 Generalized Focal Loss](https://zhuanlan.zhihu.com/p/147691786) 这两篇文章了。简单来说就是，一般的目标检测都是直接回归边框相对于某个指定长度的偏移量或相对量，但是GFL和nanodet不这么干，因为这样非常不flexible，在复杂场景中，边界框的表示具有很强的不确定性，而现有的框回归本质都是建模了非常单一的狄拉克分布。GFL的作者希望用一种general的分布去建模边界框的表示，工程上的实现就是，预测边框大小在(1,2,...,n=7|8|9|...)上的概率分布，然后再采用一个求和公式得到最后的结果。如下图所示（比如被水模糊掉的滑板，以及严重遮挡的大象）
+什么是distribution_project？这个需要小伙伴们去看一下[nanodet作者的详细解析](https://zhuanlan.zhihu.com/p/306530300) 和 [大白话 Generalized Focal Loss](https://zhuanlan.zhihu.com/p/147691786) 这两篇文章了。简单来说就是，一般的目标检测都是直接回归边框相对于某个指定长度的偏移量或相对量，但是GFL和nanodet不这么干，因为这样非常不flexible，在复杂场景中，边界框的表示具有很强的不确定性，而现有的框回归本质都是建模了非常单一的狄拉克分布。GFL的作者希望用一种general的分布去建模边界框的表示，工程上的实现就是，预测边框大小在(0,1,2,...,n=7|8|9|...)上的概率分布，然后再采用一个求和公式得到最后的结果。如下图所示（比如被水模糊掉的滑板，以及严重遮挡的大象）
 
 <div align='center'>
   <img src='resources/gfl.jpg' height="200" width="600">
@@ -141,7 +141,7 @@ return cls_score, bbox_pred
 可以看到，distribution_project操作已经被转换成Softmax和MatMul两个算子。而在Internal中注册的`project`也被当做了常量作为MatMul算子的输入。  
 
 <div align='center'>
-  <img src='resources/matmul.png' height="400px">
+  <img src='resources/matmul.png' height="400px" width="600">
 </div>   
 
 

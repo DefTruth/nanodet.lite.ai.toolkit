@@ -283,6 +283,8 @@ static void test_nanodet()
 ```  
 ### 5.2 MNN版本
 ```c++
+static void test_nanodet()
+{
 #ifdef ENABLE_MNN
     std::string mnn_path = "../hub/mnn/cv/nanodet_m.mnn";
     std::string test_img_path = "../examples/lite/resources/9.jpg";
@@ -303,10 +305,13 @@ static void test_nanodet()
     
     delete nanodet;
 #endif
+}
 ```  
 
 ### 5.3 TNN版本
 ```c++
+static void test_nanodet()
+{
 #ifdef ENABLE_TNN
     std::string proto_path = "../hub/tnn/cv/nanodet_m.opt.tnnproto";
     std::string model_path = "../hub/tnn/cv/nanodet_m.opt.tnnmodel";
@@ -328,10 +333,13 @@ static void test_nanodet()
     
     delete nanodet;
 #endif
+}
 ```  
 
 ### 5.4 NCNN版本
 ```c++
+static void test_nanodet()
+{
 #ifdef ENABLE_NCNN
     std::string param_path = "../hub/ncnn/cv/nanodet_m-opt.param";
     std::string bin_path = "../hub/ncnn/cv/nanodet_m-opt.bin";
@@ -354,6 +362,7 @@ static void test_nanodet()
     
     delete nanodet;
 #endif
+}
 ```  
 * 输出结果为:  
 <div align='center'>

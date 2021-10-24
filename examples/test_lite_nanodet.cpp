@@ -12,11 +12,11 @@ static void test_nanodet()
 
   auto *nanodet = new lite::cv::detection::NanoDet(onnx_path); 
 
-  std::vector<lite::cv::types::Boxf> detected_boxes;
+  std::vector<lite::types::Boxf> detected_boxes;
   cv::Mat img_bgr = cv::imread(test_img_path);
   nanodet->detect(img_bgr, detected_boxes, 0.3f);
 
-  lite::cv::utils::draw_boxes_inplace(img_bgr, detected_boxes);
+  lite::utils::draw_boxes_inplace(img_bgr, detected_boxes);
 
   cv::imwrite(save_img_path, img_bgr);
 
@@ -25,7 +25,6 @@ static void test_nanodet()
   delete nanodet;
 
 }
-
 
 
 int main(__unused int argc, __unused char *argv[])

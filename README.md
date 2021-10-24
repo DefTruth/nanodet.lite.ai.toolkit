@@ -283,6 +283,8 @@ static void test_nanodet()
 ```  
 ### 5.2 MNN版本
 ```c++
+#include "lite/lite.h"
+
 static void test_nanodet()
 {
 #ifdef ENABLE_MNN
@@ -310,6 +312,8 @@ static void test_nanodet()
 
 ### 5.3 TNN版本
 ```c++
+#include "lite/lite.h"
+
 static void test_nanodet()
 {
 #ifdef ENABLE_TNN
@@ -338,6 +342,8 @@ static void test_nanodet()
 
 ### 5.4 NCNN版本
 ```c++
+#include "lite/lite.h"
+
 static void test_nanodet()
 {
 #ifdef ENABLE_NCNN

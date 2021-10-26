@@ -4,17 +4,16 @@
   <img src=https://img.shields.io/github/stars/DefTruth/nanodet.lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/forks/DefTruth/nanodet.lite.ai.toolkit.svg?style=social >
   <img src=https://img.shields.io/github/watchers/DefTruth/nanodet.lite.ai.toolkit.svg?style=social>
-  <img src=https://visitor-badge.laobi.icu/badge?page_id=DefTruth.nanodet.lite.ai.toolkit >
 </div>
 
 
 使用Lite.AI.ToolKit C++工具箱来跑NanoDet的一些案例(https://github.com/DefTruth/lite.ai.toolkit) ，ONNXRuntime、MNN、NCNN和TNN四个版本。
 
 <div align='center'>
-  <img src='resources/1.jpg' height="100px" width="200px">
-  <img src='resources/3.jpg' height="100px" width="200px">
-  <img src='resources/7.jpg' height="100px" width="200px">
-  <img src='resources/9.jpg' height="100px" width="200px">
+  <img src='resources/1.jpg' height="100px" width="160px">
+  <img src='resources/3.jpg' height="100px" width="160px">
+  <img src='resources/7.jpg' height="100px" width="160px">
+  <img src='resources/9.jpg' height="100px" width="160px">
 
 </div>   
 
@@ -372,15 +371,15 @@ static void test_nanodet()
 ```  
 * 输出结果为:  
 <div align='center'>
-  <img src='resources/1.jpg' height="100px" width="200px">
-  <img src='resources/2.jpg' height="100px" width="200px">
-  <img src='resources/3.jpg' height="100px" width="200px">
-  <img src='resources/4.jpg' height="100px" width="200px">
+  <img src='resources/1.jpg' height="100px" width="160px">
+  <img src='resources/2.jpg' height="100px" width="160px">
+  <img src='resources/3.jpg' height="100px" width="160px">
+  <img src='resources/4.jpg' height="100px" width="160px">
   <br>  
-  <img src='resources/5.jpg' height="100px" width="200px">
-  <img src='resources/6.jpg' height="100px" width="200px">
-  <img src='resources/7.jpg' height="100px" width="200px">
-  <img src='resources/9.jpg' height="100px" width="200px">
+  <img src='resources/5.jpg' height="100px" width="160px">
+  <img src='resources/6.jpg' height="100px" width="160px">
+  <img src='resources/7.jpg' height="100px" width="160px">
+  <img src='resources/9.jpg' height="100px" width="160px">
 </div>   
 
 ## 6. 编译运行

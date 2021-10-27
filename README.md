@@ -214,7 +214,7 @@ return cls_score, bbox_pred
 
 
 
-## 4. 接口文档
+## 5. 接口文档
 
 在[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 中，nanodet的实现类为：
 
@@ -251,10 +251,10 @@ public:
 * topk：默认100，只保留前k个检测到的结果。
 * nms_type：NMS算法的类型，默认为不同的类别各自做NMS。 
 
-## 5. 使用案例
+## 6. 使用案例
 这里测试使用的是nanodet_m.onnx版本的模型，你可以尝试使用其他版本的模型。  
 
-### 5.1 ONNXRuntime版本
+### 6.1 ONNXRuntime版本
 ```c++
 #include "lite/lite.h"
 
@@ -280,7 +280,7 @@ static void test_nanodet()
 
 }
 ```  
-### 5.2 MNN版本
+### 6.2 MNN版本
 ```c++
 #include "lite/lite.h"
 
@@ -309,7 +309,7 @@ static void test_nanodet()
 }
 ```  
 
-### 5.3 TNN版本
+### 6.3 TNN版本
 ```c++
 #include "lite/lite.h"
 
@@ -339,7 +339,7 @@ static void test_nanodet()
 }
 ```  
 
-### 5.4 NCNN版本
+### 6.4 NCNN版本
 ```c++
 #include "lite/lite.h"
 
@@ -382,7 +382,7 @@ static void test_nanodet()
   <img src='resources/9.jpg' height="100px" width="160px">
 </div>   
 
-## 6. 编译运行
+## 7. 编译运行
 在MacOS下可以直接编译运行本项目，无需下载其他依赖库。其他系统则需要从[lite.ai.toolkit](https://github.com/DefTruth/lite.ai.toolkit) 中下载源码先编译*lite.ai.toolkit.v0.1.0*动态库。
 ```shell
 git clone --depth=1 https://github.com/DefTruth/nanodet.lite.ai.toolkit.git

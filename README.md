@@ -1,4 +1,4 @@
-# nanodet-ncnn-mnn-tnn-onnxruntime 🚀🚀🌟  
+# nanodet.lite.ai.toolkit 🚀🚀🌟  
 
 <div align='left'>
   <img src=https://img.shields.io/github/stars/DefTruth/nanodet.lite.ai.toolkit.svg?style=social >

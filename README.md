@@ -30,6 +30,14 @@ nanodet C++ 版本的源码包含ONNXRuntime、MNN、NCNN和TNN四个版本，�
 * [tnn_nanodet.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/tnn/cv/tnn_nanodet.h)
 * [ncnn_nanodet.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_nanodet.cpp)
 * [ncnn_nanodet.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_nanodet.h)
+* [nanodet_plus.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ort/cv/nanodet_plus.cpp)
+* [nanodet_plus.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ort/cv/nanodet_plus.h)
+* [mnn_nanodet_plus.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/mnn/cv/mnn_nanodet_plus.cpp)
+* [mnn_nanodet_plus.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/mnn/cv/mnn_nanodet_plus.h)
+* [tnn_nanodet_plus.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/tnn/cv/tnn_nanodet_plus.cpp)
+* [tnn_nanodet_plus.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/tnn/cv/tnn_nanodet_plus.h)
+* [ncnn_nanodet_plus.cpp](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_nanodet_plus.cpp)
+* [ncnn_nanodet_plus.h](https://github.com/DefTruth/lite.ai.toolkit/blob/main/lite/ncnn/cv/ncnn_nanodet_plus.h)
 
 ONNXRuntime C++、MNN、TNN和NCNN版本的推理实现均已测试通过，欢迎白嫖~
 
@@ -52,6 +60,10 @@ ONNXRuntime C++、MNN、TNN和NCNN版本的推理实现均已测试通过，欢�
 | *lite::cv::detection::NanoDetEfficientNetLite* |    [nanodet-EfficientNet-Lite0_320.onnx](https://github.com/DefTruth/nanodet.lite.ai.toolkit/blob/main/examples/hub/onnx/cv)     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
 | *lite::cv::detection::NanoDetEfficientNetLite* |    [nanodet-EfficientNet-Lite1_416.onnx](https://github.com/DefTruth/nanodet.lite.ai.toolkit/blob/main/examples/hub/onnx/cv)     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
 | *lite::cv::detection::NanoDetEfficientNetLite* |    [nanodet-EfficientNet-Lite2_512.onnx](https://github.com/DefTruth/nanodet.lite.ai.toolkit/blob/main/examples/hub/onnx/cv)     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 18Mb  |  
+| *lite::cv::detection::NanoDetPlus* |    nanodet-plus-m_320.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::cv::detection::NanoDetPlus* |    nanodet-plus-m_416.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_320.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
+| *lite::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_416.onnx     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
 
 ### 3.2 MNN模型文件 
 MNN模型文件下载地址，([Baidu Drive](https://pan.baidu.com/s/1KyO-bCYUv6qPq2M8BH_Okg) code: 9v63)
@@ -69,6 +81,10 @@ MNN模型文件下载地址，([Baidu Drive](https://pan.baidu.com/s/1KyO-bCYUv6
 | *lite::mnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite0_320.mnn     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
 | *lite::mnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite1_416.mnn     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
 | *lite::mnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite2_512.mnn     |       [nanodet](https://github.com/RangiLyu/nanodet)
+| *lite::mnn::cv::detection::NanoDetPlus* |    nanodet-plus-m_320.mnn     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::mnn::cv::detection::NanoDetPlus* |    nanodet-plus-m_416.mnn     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::mnn::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_320.mnn     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
+| *lite::mnn::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_416.mnn     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
 
 ### 3.3 TNN模型文件
 TNN模型文件下载地址，([Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbEc5HKVtqITpcw) code: 6o6k)
@@ -86,6 +102,10 @@ TNN模型文件下载地址，([Baidu Drive](https://pan.baidu.com/s/1lvM2YKyUbE
 | *lite::tnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite0_320.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
 | *lite::tnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite1_416.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
 | *lite::tnn::cv::detection::NanoDetEfficientNetLite* |    nanodet-EfficientNet-Lite2_512.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 18Mb  |
+| *lite::mnn::cv::detection::NanoDetPlus* |    nanodet-plus-m_320.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::mnn::cv::detection::NanoDetPlus* |    nanodet-plus-m_416.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::mnn::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_320.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
+| *lite::mnn::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_416.opt.tnnproto&tnnmodel     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
 
 ### 3.4 NCNN模型文件  
 NCNN模型文件下载地址，([Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFbMseGFWscgVhgQ) code: sc7f)
@@ -114,6 +134,11 @@ NCNN模型文件下载地址，([Baidu Drive](https://pan.baidu.com/s/1hlnqyNsFb
 | *lite::ncnn::cv::detection::NanoDetEfficientNetLiteDepreciated* |    nanodet-EfficientNet-Lite0_320-depreciated-opt.param&bin     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 12Mb  |
 | *lite::ncnn::cv::detection::NanoDetEfficientNetLiteDepreciated* |    nanodet-EfficientNet-Lite1_416-depreciated-opt.param&bin     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 15Mb  |
 | *lite::ncnn::cv::detection::NanoDetEfficientNetLiteDepreciated* |    nanodet-EfficientNet-Lite2_512-depreciated-opt.param&bin     |       [nanodet](https://github.com/RangiLyu/nanodet)       | 18Mb  |
+| *lite::ncnn::cv::detection::NanoDetPlus* |    nanodet-plus-m_320.opt.param&bin      |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::ncnn::cv::detection::NanoDetPlus* |    nanodet-plus-m_416.opt.param&bin      |       [nanodet](https://github.com/RangiLyu/nanodet)       | 4.5Mb  |
+| *lite::ncnn::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_320.opt.param&bin      |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
+| *lite::ncnn::cv::detection::NanoDetPlus* |    nanodet-plus-m-1.5x_416.opt.param&bin      |       [nanodet](https://github.com/RangiLyu/nanodet)       | 9.4Mb  |
+
 
 ## 4. 修改源码
 
@@ -227,6 +252,11 @@ class LITE_EXPORTS lite::tnn::cv::detection::NanoDet;
 class LITE_EXPORTS lite::tnn::cv::detection::NanoDetEfficientNetLite;
 class LITE_EXPORTS lite::ncnn::cv::detection::NanoDet;
 class LITE_EXPORTS lite::ncnn::cv::detection::NanoDetEfficientNetLite;
+// latest NanoDetPlus 2021-12-25
+class LITE_EXPORTS lite::cv::detection::NanoDetPlus;
+class LITE_EXPORTS lite::mnn::cv::detection::NanoDetPlus;
+class LITE_EXPORTS lite::tnn::cv::detection::NanoDetPlus;
+class LITE_EXPORTS lite::ncnn::cv::detection::NanoDetPlus;
 ```  
 该类型目前包含1公共接口`detect`用于进行目标检测。由于EfficientNetLite版本的nanodet前处理和其他版本的不一致，我为了保持Lite.AI.ToolKit中初始化风格的一致性，这里使用两个类分别实现了nanodet的C++封装。
 ```c++

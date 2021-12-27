@@ -487,8 +487,22 @@ Output: 4 Name: dis_pred_stride_16 Dim: 2 :4
 Output: 5 Name: dis_pred_stride_32 Dim: 0 :1
 Output: 5 Name: dis_pred_stride_32 Dim: 1 :100
 Output: 5 Name: dis_pred_stride_32 Dim: 2 :4
+========================================
 generate_bboxes num: 50
-Detected Boxes Num: 9
+NanoDet Detected Boxes Num: 9
+LITEORT_DEBUG LogId: ../hub/onnx/cv/nanodet-plus-m-1.5x_416.onnx
+=============== Input-Dims ==============
+input_node_dims: 1
+input_node_dims: 3
+input_node_dims: 416
+input_node_dims: 416
+=============== Output-Dims ==============
+Output: 0 Name: output Dim: 0 :1
+Output: 0 Name: output Dim: 1 :3598
+Output: 0 Name: output Dim: 2 :112
+========================================
+generate_bboxes num: 70
+NanoDetPlus Detected Boxes Num: 9
 Testing Successful !
 ```  
 
